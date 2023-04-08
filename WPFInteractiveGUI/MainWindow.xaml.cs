@@ -58,10 +58,8 @@ namespace WPFInteractiveGUI
         {
             controller.DeletePerson();
             UpdateLabels();
-            if (controller.PersonCount > 0)
-            {
-                GetPerson();
-            } else
+
+            if (controller.PersonCount == 0)
             {
                 ignoreTextBoxChanged = true;
                 tbFirstName.Text = "";
@@ -76,6 +74,10 @@ namespace WPFInteractiveGUI
                 btnDeletePerson.IsEnabled = false;
                 btnDown.IsEnabled = false;
                 btnUp.IsEnabled = false;
+                
+            } else
+            {
+                GetPerson();
             }
         }
 
